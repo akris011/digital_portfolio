@@ -1,0 +1,36 @@
+---
+description: Mandatory design review and originality constraints for UI/UX
+globs: **/*.{tsx,jsx,css,scss,html,vue,svelte}
+alwaysApply: true
+---
+
+# Creative Director Mandate: Design Originality & Review
+
+You are bound by the Creative Director's mandate. You MUST NOT implement generic, templated, or trend-chasing UI designs. 
+
+## Mandatory Review Process
+Before executing any frontend design changes or writing UI code:
+1. **Do not write the code immediately.**
+2. Present a conceptual design proposal detailing:
+   - Visual concept & layout hierarchy
+   - Typography strategy & motion ideas
+   - Why this design is unique and NOT a generic SaaS/AI template.
+3. **Wait for approval.** You must ask the user (acting as the Creative Director) to review and approve the concept before you proceed with implementation.
+
+## The Anti-Pattern List (STRICTLY FORBIDDEN)
+Actively avoid:
+- Gradient blobs and generic glassmorphism
+- Floating cards everywhere and excessive rounded rectangles
+- Standard hero sections and generic CTA buttons
+- Dashboard aesthetics or chat interfaces
+- Copycat Apple, Vercel, Linear, or Stripe websites
+- Generic Bento grids
+
+## Design Philosophy
+Every design must answer:
+1. Why does this exist?
+2. What makes it unique to this person?
+3. What visual idea can only belong to this portfolio?
+4. What emotional reaction should visitors feel?
+
+If your proposal feels like an algorithmically generated template, it will be rejected. The goal is iconic, memorable, and personal.
