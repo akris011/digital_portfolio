@@ -2,12 +2,22 @@ import Link from "next/link";
 
 export default function NotFoundPage() {
   return (
-    <div className="mx-auto flex min-h-[70vh] w-full max-w-4xl flex-col items-center justify-center px-6 text-center">
-      <p className="section-label">404</p>
-      <h1 className="mt-3 text-4xl font-semibold text-zinc-100">This route is not wired yet.</h1>
-      <p className="mt-4 text-zinc-300">The page you are looking for does not exist in the current portfolio build.</p>
-      <Link href="/" className="btn-primary mt-8">
-        Return Home
+    <div className="mx-auto flex min-h-[80vh] w-full max-w-4xl flex-col items-center justify-center px-6 text-center">
+      <p className="font-mono text-[10px] font-bold uppercase tracking-widest text-[var(--laser-red)] mb-4 flex items-center gap-2">
+        <span className="w-1.5 h-1.5 bg-[var(--laser-red)] animate-pulse" />
+        Error // 404
+      </p>
+      <h1 className="text-4xl md:text-5xl font-bold text-[var(--titanium-900)] tracking-tight">
+        Signal Lost.
+      </h1>
+      <p className="mt-4 text-[var(--titanium-600)] font-mono text-sm max-w-md">
+        The requested route does not exist in the current system build.
+      </p>
+      <Link 
+        href="/" 
+        className="mt-8 font-mono text-[10px] font-bold uppercase tracking-widest text-white bg-[var(--titanium-800)] px-6 py-3 hover:bg-[var(--laser-red)] transition-colors"
+      >
+        Re-establish Connection →
       </Link>
     </div>
   );

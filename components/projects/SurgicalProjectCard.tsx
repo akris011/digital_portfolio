@@ -10,19 +10,16 @@ export function SurgicalProjectCard({ project }: Props) {
   return (
     <article className="group bezel-titanium rounded-xl p-2 transition-transform hover:-translate-y-1 duration-300 relative overflow-hidden">
       
-      {/* The X-Ray Scanner Line (Visible on Hover) */}
-      <div className="absolute left-0 right-0 h-1 bg-[var(--laser-red)] shadow-[0_0_15px_var(--laser-red)] top-0 -translate-y-[20px] group-hover:translate-y-[600px] transition-transform duration-[1.5s] ease-linear z-50 opacity-0 group-hover:opacity-100 pointer-events-none" />
-
       {/* Inner Monitor Screen */}
       <div className="screen-monitor rounded-lg p-6 relative overflow-hidden h-full flex flex-col transition-colors duration-500 group-hover:bg-[#001122]">
         
         {/* X-Ray / Scan Grid Overlay (Visible on Hover) */}
-        <div className="absolute inset-0 opacity-0 group-hover:opacity-20 pointer-events-none transition-opacity duration-500" 
+        <div className="absolute inset-0 opacity-0 group-hover:opacity-20 pointer-events-none transition-opacity duration-500 z-30" 
              style={{ backgroundImage: 'linear-gradient(#00ffff 1px, transparent 1px), linear-gradient(90deg, #00ffff 1px, transparent 1px)', backgroundSize: '20px 20px' }} />
 
         {/* Screen Glare / Reflection */}
-        <div className="absolute top-0 left-0 right-0 h-1/2 bg-gradient-to-b from-white/5 to-transparent pointer-events-none" />
-        <div className="absolute inset-0 scanlines opacity-10 pointer-events-none" />
+        <div className="absolute top-0 left-0 right-0 h-1/2 bg-gradient-to-b from-white/5 to-transparent pointer-events-none z-20" />
+        <div className="absolute inset-0 scanlines opacity-10 pointer-events-none z-20" />
 
         {/* Header / Status */}
         <div className="flex justify-between items-start border-b border-[var(--titanium-800)] pb-3 mb-4 relative z-10 transition-colors duration-500 group-hover:border-[#00ffff]/30">
@@ -34,6 +31,23 @@ export function SurgicalProjectCard({ project }: Props) {
             ID: {project.slug.substring(0, 6).toUpperCase()}
           </div>
         </div>
+
+        {/* Cover Image with X-Ray Scanner */}
+        {project.cover ? (
+          <div className="relative w-full h-44 mb-5 overflow-hidden rounded-md border border-[var(--titanium-800)] group-hover:border-[#00ffff]/40 transition-colors duration-500 z-10">
+            {/* The scanning laser line, contained to the image */}
+            <div className="absolute left-0 right-0 h-[2px] bg-[#00ffff] shadow-[0_0_15px_#00ffff] z-30 opacity-0 group-hover:opacity-100 top-0 group-hover:top-full transition-all duration-[1.4s] ease-linear pointer-events-none" />
+            
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img 
+              src={project.cover} 
+              alt={project.title} 
+              className="w-full h-full object-cover grayscale brightness-90 contrast-110 transition-all duration-700 group-hover:grayscale-0 group-hover:invert group-hover:hue-rotate-[150deg] group-hover:contrast-150 group-hover:brightness-110"
+            />
+            {/* Cyan wash on hover for the x-ray feel */}
+            <div className="absolute inset-0 bg-[#00ffff] mix-blend-color opacity-0 group-hover:opacity-40 transition-opacity duration-700 pointer-events-none" />
+          </div>
+        ) : null}
 
         {/* Content */}
         <div className="relative z-10 flex-grow">
