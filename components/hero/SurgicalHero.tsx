@@ -10,12 +10,12 @@ export function SurgicalHero() {
 
   useEffect(() => {
     const sequence = async () => {
-      // 1. Arm descends
-      await new Promise((resolve) => setTimeout(resolve, 800));
+      // 1. Arm descends (faster)
+      await new Promise((resolve) => setTimeout(resolve, 400));
       setPhase("etching");
       
-      // 2. Etching process
-      await new Promise((resolve) => setTimeout(resolve, 3000));
+      // 2. Etching process (faster)
+      await new Promise((resolve) => setTimeout(resolve, 1800));
       setPhase("complete");
     };
     sequence();
@@ -47,6 +47,37 @@ export function SurgicalHero() {
           {/* Inner Surface */}
           <div className="bg-[var(--titanium-200)] rounded-xl border border-[var(--titanium-300)] shadow-[inset_0_2px_10px_rgba(0,0,0,0.05)] p-8 md:p-16 min-h-[500px] flex flex-col items-center justify-center relative overflow-hidden">
             
+            {/* Camera Viewfinder Overlay */}
+            <div className="absolute inset-0 pointer-events-none z-40 opacity-30">
+              {/* Corner brackets */}
+              <div className="absolute top-6 left-6 w-8 h-8 border-t-2 border-l-2 border-[var(--titanium-700)]" />
+              <div className="absolute top-6 right-6 w-8 h-8 border-t-2 border-r-2 border-[var(--titanium-700)]" />
+              <div className="absolute bottom-6 left-6 w-8 h-8 border-b-2 border-l-2 border-[var(--titanium-700)]" />
+              <div className="absolute bottom-6 right-6 w-8 h-8 border-b-2 border-r-2 border-[var(--titanium-700)]" />
+              
+              {/* Center Crosshair */}
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 flex items-center justify-center">
+                <div className="w-full h-[1px] bg-[var(--titanium-600)] opacity-50" />
+                <div className="absolute h-full w-[1px] bg-[var(--titanium-600)] opacity-50" />
+                <div className="absolute w-4 h-4 border border-[var(--titanium-600)] rounded-full opacity-50" />
+              </div>
+
+              {/* Status Text */}
+              <div className="absolute top-8 left-10 font-mono text-[10px] font-bold text-[var(--titanium-700)] flex items-center gap-2">
+                <div className={`w-2 h-2 rounded-full ${phase === "etching" ? "bg-[var(--laser-red)] animate-pulse" : "bg-[var(--titanium-500)]"}`} />
+                REC
+              </div>
+              <div className="absolute top-8 right-10 font-mono text-[10px] font-bold text-[var(--titanium-700)]">
+                MAG: 4.2x
+              </div>
+              <div className="absolute bottom-8 left-10 font-mono text-[10px] font-bold text-[var(--titanium-700)]">
+                FOC: AUTO
+              </div>
+              <div className="absolute bottom-8 right-10 font-mono text-[10px] font-bold text-[var(--titanium-700)]">
+                LSR: {phase === "etching" ? "ACTIVE" : "STDBY"}
+              </div>
+            </div>
+            
             {/* The Robotic Arm (SVG) */}
             <motion.div 
               initial={{ y: -400, x: -100 }}
@@ -55,32 +86,43 @@ export function SurgicalHero() {
                 phase === "etching" ? { 
                   y: [-150, -140, -160, -150, -140, -150], 
                   x: [-50, 0, 50, 100, 150, 200],
-                  transition: { duration: 3, ease: "linear" }
+                  transition: { duration: 1.8, ease: "linear" }
                 } :
                 { y: -500, x: 200 } // Retract
               }
-              transition={{ duration: 0.8, ease: "easeInOut" }}
+              transition={{ duration: 0.6, ease: "easeInOut" }}
               className="absolute top-0 left-1/4 z-30 pointer-events-none origin-top"
             >
-              <svg width="120" height="300" viewBox="0 0 120 300" fill="none" xmlns="http://www.w3.org/2000/svg">
-                {/* Arm Base */}
-                <rect x="40" y="0" width="40" height="100" fill="url(#titanium-grad)" stroke="#343a40" strokeWidth="2"/>
-                {/* Joint 1 */}
-                <circle cx="60" cy="100" r="25" fill="#212529" />
-                <circle cx="60" cy="100" r="10" fill="#adb5bd" />
-                {/* Lower Arm */}
-                <rect x="45" y="100" width="30" height="120" fill="url(#titanium-grad)" stroke="#343a40" strokeWidth="2"/>
-                {/* Joint 2 */}
-                <circle cx="60" cy="220" r="20" fill="#212529" />
-                {/* Effector / Laser Head */}
-                <path d="M50 220 L70 220 L65 270 L55 270 Z" fill="#dee2e6" stroke="#343a40" strokeWidth="2"/>
-                {/* Laser Diode */}
-                <circle cx="60" cy="275" r="5" fill={phase === "etching" ? "#ff2a2a" : "#495057"} className={phase === "etching" ? "drop-shadow-[0_0_8px_rgba(255,42,42,0.8)]" : ""} />
+              <svg width="160" height="340" viewBox="0 0 160 340" fill="none" xmlns="http://www.w3.org/2000/svg">
+                {/* Advanced Robotic Arm */}
+                {/* Upper Arm Segment */}
+                <path d="M60 0 L100 0 L90 120 L70 120 Z" fill="url(#titanium-grad)" stroke="#343a40" strokeWidth="2" strokeLinejoin="round"/>
+                
+                {/* Main Joint Housing */}
+                <circle cx="80" cy="120" r="28" fill="#e9ecef" stroke="#343a40" strokeWidth="2" />
+                <circle cx="80" cy="120" r="18" fill="#212529" />
+                <circle cx="80" cy="120" r="8" fill="#adb5bd" />
+                
+                {/* Lower Arm Segment (Angled) */}
+                <path d="M68 135 L92 135 L85 240 L75 240 Z" fill="url(#titanium-grad)" stroke="#343a40" strokeWidth="2" strokeLinejoin="round"/>
+                
+                {/* Secondary Joint */}
+                <circle cx="80" cy="240" r="20" fill="#e9ecef" stroke="#343a40" strokeWidth="2" />
+                <circle cx="80" cy="240" r="12" fill="#212529" />
+                
+                {/* Effector Base */}
+                <path d="M70 255 L90 255 L85 280 L75 280 Z" fill="#dee2e6" stroke="#343a40" strokeWidth="2" strokeLinejoin="round"/>
+                
+                {/* Needle / Scalpel Tip */}
+                <path d="M78 280 L82 280 L80.5 315 L79.5 315 Z" fill="#adb5bd" stroke="#343a40" strokeWidth="1" />
+                
+                {/* Laser Diode / Emitter */}
+                <circle cx="80" cy="318" r="3" fill={phase === "etching" ? "#ff2a2a" : "#495057"} className={phase === "etching" ? "drop-shadow-[0_0_8px_rgba(255,42,42,0.9)]" : ""} />
                 
                 <defs>
                   <linearGradient id="titanium-grad" x1="0" y1="0" x2="1" y2="0">
-                    <stop offset="0%" stopColor="#e9ecef" />
-                    <stop offset="50%" stopColor="#f8f9fa" />
+                    <stop offset="0%" stopColor="#ffffff" />
+                    <stop offset="40%" stopColor="#e9ecef" />
                     <stop offset="100%" stopColor="#ced4da" />
                   </linearGradient>
                 </defs>
@@ -90,9 +132,18 @@ export function SurgicalHero() {
               {phase === "etching" && (
                 <motion.div 
                   initial={{ height: 0, opacity: 0 }}
-                  animate={{ height: 180, opacity: [0.8, 1, 0.8] }}
+                  animate={{ height: 160, opacity: [0.7, 1, 0.7] }}
+                  transition={{ duration: 0.05, repeat: Infinity }}
+                  className="absolute left-[80px] top-[320px] w-[2px] bg-[var(--laser-red)] shadow-[0_0_12px_rgba(255,42,42,1)] origin-top"
+                />
+              )}
+              
+              {/* Sparks */}
+              {phase === "etching" && (
+                <motion.div 
+                  className="absolute left-[80px] top-[480px] w-2 h-2 bg-white rounded-full shadow-[0_0_15px_rgba(255,42,42,1)]"
+                  animate={{ scale: [1, 2, 1], opacity: [1, 0, 1] }}
                   transition={{ duration: 0.1, repeat: Infinity }}
-                  className="absolute left-[60px] top-[280px] w-[2px] bg-[var(--laser-red)] shadow-[0_0_10px_rgba(255,42,42,1)] origin-top"
                 />
               )}
             </motion.div>
@@ -122,7 +173,7 @@ export function SurgicalHero() {
                         phase === "etching" ? { strokeDasharray: "1000 0" } : 
                         phase === "complete" ? { strokeDasharray: "1000 0" } : {}
                       }
-                      transition={{ duration: 3, ease: "linear" }}
+                      transition={{ duration: 1.8, ease: "linear" }}
                       style={{ filter: phase === "etching" ? "drop-shadow(0 0 8px rgba(255,42,42,0.8))" : "none" }}
                     >
                       Anya Krislav
@@ -154,7 +205,7 @@ export function SurgicalHero() {
               <motion.div 
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: phase === "complete" ? 1 : 0, scale: phase === "complete" ? 1 : 0.95 }}
-                transition={{ duration: 1, delay: 0.5 }}
+                transition={{ duration: 1, delay: 0.2 }}
                 className="relative w-48 h-64 md:w-64 md:h-80 flex-shrink-0"
               >
                 {/* Frame */}
@@ -168,6 +219,9 @@ export function SurgicalHero() {
                   />
                   {/* Scanline overlay for the etched metal look */}
                   <div className="absolute inset-0 scanlines opacity-30 mix-blend-overlay pointer-events-none" />
+                  
+                  {/* Holographic / Metallic sheen overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/20 to-transparent opacity-50 mix-blend-overlay pointer-events-none" />
                 </div>
                 
                 {/* Registration marks */}
