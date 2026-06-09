@@ -1,24 +1,48 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { motion, useAnimation } from "framer-motion";
+import { motion } from "framer-motion";
 import Image from "next/image";
 
 export function SurgicalHero() {
   const [phase, setPhase] = useState<"descend" | "etching" | "complete">("descend");
-  const controls = useAnimation();
 
   useEffect(() => {
-    const sequence = async () => {
-      // 1. Arm descends (faster)
-      await new Promise((resolve) => setTimeout(resolve, 400));
-      setPhase("etching");
-      
-      // 2. Etching process (faster)
-      await new Promise((resolve) => setTimeout(resolve, 1800));
-      setPhase("complete");
+    let etchTimeout: ReturnType<typeof setTimeout> | null = null;
+    let completeTimeout: ReturnType<typeof setTimeout> | null = null;
+
+    const runSequence = () => {
+      setPhase("descend");
+
+      etchTimeout = setTimeout(() => {
+        setPhase("etching");
+      }, 450);
+
+      completeTimeout = setTimeout(() => {
+        setPhase("complete");
+      }, 2400);
     };
-    sequence();
+
+    const handleVisibility = () => {
+      if (document.visibilityState === "visible") {
+        runSequence();
+      }
+    };
+
+    runSequence();
+    window.addEventListener("focus", runSequence);
+    document.addEventListener("visibilitychange", handleVisibility);
+
+    return () => {
+      if (etchTimeout) {
+        clearTimeout(etchTimeout);
+      }
+      if (completeTimeout) {
+        clearTimeout(completeTimeout);
+      }
+      window.removeEventListener("focus", runSequence);
+      document.removeEventListener("visibilitychange", handleVisibility);
+    };
   }, []);
 
   return (
@@ -157,6 +181,17 @@ export function SurgicalHero() {
                   <div className={`w-2 h-2 rounded-full ${phase === "complete" ? "bg-[var(--laser-red)] shadow-[0_0_5px_rgba(255,42,42,0.6)]" : "bg-[var(--titanium-400)]"}`} />
                   SYS.ID // 001
                 </div>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setPhase("descend");
+                    setTimeout(() => setPhase("etching"), 450);
+                    setTimeout(() => setPhase("complete"), 2400);
+                  }}
+                  className="mb-3 inline-flex items-center border border-[var(--titanium-500)] bg-white/70 px-3 py-1 font-mono text-[10px] font-bold tracking-widest uppercase text-[var(--titanium-700)] transition hover:border-[var(--laser-red)] hover:text-[var(--laser-red)]"
+                >
+                  Replay Sequence
+                </button>
                 
                 <div className="relative">
                   {/* SVG Text for "Drawing" effect */}

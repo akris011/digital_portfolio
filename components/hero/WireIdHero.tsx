@@ -11,7 +11,6 @@ import type { Group } from "three";
 
 function AnimatedWires() {
   const groupRef = useRef<Group>(null);
-  const progress = useRef(0);
   const wirePoints = useMemo(
     () => [
       [
@@ -55,9 +54,11 @@ function AnimatedWires() {
   );
 
   useFrame((_, delta) => {
-    progress.current = Math.min(progress.current + delta * 0.33, 1);
     if (groupRef.current) {
-      groupRef.current.rotation.z = Math.sin(progress.current * Math.PI) * 0.02;
+      const t = performance.now() * 0.001;
+      groupRef.current.rotation.z = Math.sin(t * 0.8) * 0.03;
+      groupRef.current.rotation.x = Math.cos(t * 0.55) * 0.012;
+      groupRef.current.position.y = Math.sin(t * 1.1) * 0.03;
     }
   });
 
