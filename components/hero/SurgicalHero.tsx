@@ -16,11 +16,11 @@ export function SurgicalHero() {
 
       etchTimeout = setTimeout(() => {
         setPhase("etching");
-      }, 450);
+      }, 250);
 
       completeTimeout = setTimeout(() => {
         setPhase("complete");
-      }, 2400);
+      }, 1150);
     };
 
     const handleVisibility = () => {
@@ -110,11 +110,11 @@ export function SurgicalHero() {
                 phase === "etching" ? { 
                   y: [-150, -140, -160, -150, -140, -150], 
                   x: [-50, 0, 50, 100, 150, 200],
-                  transition: { duration: 1.8, ease: "linear" }
+                  transition: { duration: 0.9, ease: "linear" }
                 } :
                 { y: -500, x: 200 } // Retract
               }
-              transition={{ duration: 0.6, ease: "easeInOut" }}
+              transition={{ duration: 0.3, ease: "easeInOut" }}
               className="absolute top-0 left-1/4 z-30 pointer-events-none origin-top"
             >
               <svg width="160" height="340" viewBox="0 0 160 340" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -185,8 +185,8 @@ export function SurgicalHero() {
                   type="button"
                   onClick={() => {
                     setPhase("descend");
-                    setTimeout(() => setPhase("etching"), 450);
-                    setTimeout(() => setPhase("complete"), 2400);
+                    setTimeout(() => setPhase("etching"), 250);
+                    setTimeout(() => setPhase("complete"), 1150);
                   }}
                   className="mb-3 inline-flex items-center border border-[var(--titanium-500)] bg-white/70 px-3 py-1 font-mono text-[10px] font-bold tracking-widest uppercase text-[var(--titanium-700)] transition hover:border-[var(--laser-red)] hover:text-[var(--laser-red)]"
                 >
@@ -208,7 +208,7 @@ export function SurgicalHero() {
                         phase === "etching" ? { strokeDasharray: "1000 0" } : 
                         phase === "complete" ? { strokeDasharray: "1000 0" } : {}
                       }
-                      transition={{ duration: 1.8, ease: "linear" }}
+                      transition={{ duration: 0.9, ease: "linear" }}
                       style={{ filter: phase === "etching" ? "drop-shadow(0 0 8px rgba(255,42,42,0.8))" : "none" }}
                     >
                       Anya Krislav
