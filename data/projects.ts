@@ -1,3 +1,8 @@
+export type ProjectImage = {
+  src: string;
+  caption: string;
+};
+
 export type Project = {
   slug: string;
   title: string;
@@ -9,6 +14,8 @@ export type Project = {
   story: string;
   challenges: string[];
   nextSteps: string[];
+  cover?: string;
+  images?: ProjectImage[];
   featured?: boolean;
 };
 
@@ -34,6 +41,29 @@ export const projects: Project[] = [
     nextSteps: [
       "Add replay mode for test sessions.",
       "Expand telemetry channels and anomaly alerts."
+    ],
+    cover: "/projects/telemetry/enclosure-top.png",
+    images: [
+      {
+        src: "/projects/telemetry/enclosure-top.png",
+        caption: "Custom 3D-printed telemetry enclosure with triangular venting and external LoRa antenna."
+      },
+      {
+        src: "/projects/telemetry/internals.png",
+        caption: "Internals: SparkFun ESP32 protoboard with onboard OLED for live status readout."
+      },
+      {
+        src: "/projects/telemetry/bench-demo.png",
+        caption: "Bench validation of the live diagnostics dashboard, streaming sensor data in real time."
+      },
+      {
+        src: "/projects/telemetry/dome-enclosure.png",
+        caption: "Aerodynamic dome housing variant for mounting on the competition vehicle."
+      },
+      {
+        src: "/projects/telemetry/shell-car.png",
+        caption: "DEV competition car (#716) for the Shell Eco-Marathon, where the system was integrated into the CAN bus."
+      }
     ],
     featured: true
   },
