@@ -1,30 +1,29 @@
-import { SurgicalProjectCard } from "@/components/projects/SurgicalProjectCard";
 import { projects } from "@/data/projects";
+import { InteractiveSchematic } from "@/components/projects/InteractiveSchematic";
 
 export default function ProjectsPage() {
   return (
-    <div className="mx-auto w-full max-w-5xl px-6 py-24 min-h-screen">
+    <div className="w-full min-h-screen bg-[#050505] selection:bg-[var(--laser-red)] selection:text-white">
       
       {/* Header Block */}
-      <div className="border-b-2 border-[var(--titanium-400)] pb-6 mb-12">
-        <p className="font-mono text-[10px] font-bold uppercase tracking-widest text-[var(--titanium-600)] mb-2 flex items-center gap-2">
-          <span className="w-1.5 h-1.5 bg-[var(--laser-red)]" />
-          Project Index // {String(projects.length).padStart(2, "0")} Records
-        </p>
-        <h1 className="text-4xl md:text-5xl font-bold text-[var(--titanium-900)] tracking-tight">
-          Engineering Archive
-        </h1>
-        <p className="mt-6 max-w-3xl text-lg text-[var(--titanium-700)] leading-relaxed">
-          Selected work across embedded systems, robotics, and software. Each record focuses on
-          implementation detail and measurable outcomes: range, reliability, throughput, team scale, or user impact.
-        </p>
+      <div className="px-6 py-8 border-b border-[#333] bg-[#0a0a0a] relative z-10">
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-end gap-4">
+          <div>
+            <p className="font-mono text-[10px] font-bold uppercase tracking-widest text-[#666] mb-2 flex items-center gap-2">
+              <span className="w-1.5 h-1.5 bg-[var(--laser-red)]" />
+              Project Index // {String(projects.length).padStart(2, "0")} Records
+            </p>
+            <h1 className="text-3xl md:text-4xl font-bold text-white tracking-tight uppercase">
+              Hardware Schematic
+            </h1>
+          </div>
+          <p className="max-w-md text-sm text-[#888] font-mono leading-relaxed text-left md:text-right">
+            Probe the nodes below to read project telemetry. Access full data for implementation details.
+          </p>
+        </div>
       </div>
 
-      <div className="grid gap-8 lg:grid-cols-2">
-        {projects.map((project) => (
-          <SurgicalProjectCard key={project.slug} project={project} />
-        ))}
-      </div>
+      <InteractiveSchematic projects={projects} />
     </div>
   );
 }
