@@ -1,3 +1,5 @@
+"use client";
+
 export default function AboutPage() {
   return (
     <div className="mx-auto w-full max-w-5xl px-6 py-24 min-h-screen">
@@ -69,56 +71,93 @@ export default function AboutPage() {
           </div>
         </aside>
 
-        {/* Right Column: Operational History */}
+        {/* Right Column: Operational History & Experience */}
         <div className="space-y-10">
           
+          {/* Short Blurb */}
           <section>
             <h2 className="text-2xl font-bold text-[var(--titanium-900)] mb-4 flex items-center gap-3">
-              <span className="text-[var(--laser-red)]">/</span> Operational Summary
+              <span className="text-[var(--laser-red)]">/</span> Summary
             </h2>
             <p className="text-lg text-[var(--titanium-700)] leading-relaxed">
-              Engineer, team builder, and service-driven problem solver. I enjoy building systems that combine hardware reliability with software clarity, especially in robotics, telemetry, and human-centered assistive technology.
+              I am an Electrical and Computer Engineer building fault-tolerant systems. 
+              My focus is translating ambiguity into reliable hardware and software—whether 
+              that&apos;s race-car telemetry, assistive robotics, or high-frequency trading infrastructure.
             </p>
           </section>
 
+          {/* Experience Section */}
           <section className="bg-white border border-[var(--titanium-300)] p-6 shadow-sm relative overflow-hidden">
             <div className="absolute top-0 left-0 w-1 h-full bg-[var(--titanium-800)]" />
-            <h2 className="text-lg font-bold text-[var(--titanium-900)] mb-4 uppercase tracking-tight">
-              Leadership Directives
+            <h2 className="text-lg font-bold text-[var(--titanium-900)] mb-6 uppercase tracking-tight flex justify-between items-end border-b border-[var(--titanium-200)] pb-2">
+              <span>Deployment History</span>
+              <span className="font-mono text-[10px] text-[var(--titanium-500)]">EXPERIENCE</span>
             </h2>
-            <ul className="space-y-4 text-[var(--titanium-700)]">
-              <li className="flex gap-3">
-                <span className="text-[var(--laser-red)] font-bold">›</span>
-                <span>Captain and software/electrical lead in FIRST Robotics, managing technical and strategic execution.</span>
-              </li>
-              <li className="flex gap-3">
-                <span className="text-[var(--laser-red)] font-bold">›</span>
-                <span>President of Bake-A-Wish Cakes Miami, leading logistics and fundraising to serve 625+ children each year.</span>
-              </li>
-              <li className="flex gap-3">
-                <span className="text-[var(--laser-red)] font-bold">›</span>
-                <span>Builder mindset: convert ambiguity into systems, then systems into consistent outcomes.</span>
-              </li>
-            </ul>
+            
+            <div className="space-y-8">
+              
+              {/* Experience 1 */}
+              <div className="flex gap-4 group">
+                <div className="w-12 h-12 flex-shrink-0 border border-[var(--titanium-300)] rounded bg-[var(--titanium-100)] p-1 overflow-hidden">
+                  {/* TODO: Upload jane-street.png to public/logos/ */}
+                  <img src="/logos/jane-street.png" alt="Jane Street" className="w-full h-full object-contain grayscale group-hover:grayscale-0 transition-all duration-300" onError={(e) => e.currentTarget.src = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="%23adb5bd"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" /></svg>'} />
+                </div>
+                <div>
+                  <h3 className="font-bold text-[var(--titanium-900)] text-base">Jane Street</h3>
+                  <p className="font-mono text-xs text-[var(--laser-red)] mb-2">Focus Program Participant // New York City</p>
+                  <p className="text-sm text-[var(--titanium-700)]">
+                    Selected for an intensive program exploring the intersection of technology, trading, and quantitative research.
+                  </p>
+                </div>
+              </div>
+
+              {/* Experience 2 */}
+              <div className="flex gap-4 group">
+                <div className="w-12 h-12 flex-shrink-0 border border-[var(--titanium-300)] rounded bg-[var(--titanium-100)] p-1 overflow-hidden">
+                  {/* TODO: Upload forensis.png to public/logos/ */}
+                  <img src="/logos/forensis.png" alt="ForensiS" className="w-full h-full object-contain grayscale group-hover:grayscale-0 transition-all duration-300" onError={(e) => e.currentTarget.src = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="%23adb5bd"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" /></svg>'} />
+                </div>
+                <div>
+                  <h3 className="font-bold text-[var(--titanium-900)] text-base">ForensiS</h3>
+                  <p className="font-mono text-xs text-[var(--laser-red)] mb-2">Software & Hardware Engineer // Miami, FL</p>
+                  <p className="text-sm text-[var(--titanium-700)]">
+                    Built Python internal tooling to digitize production records, reducing manual entry friction. Diagnosed and resolved mixed hardware/software issues under production pressure.
+                  </p>
+                </div>
+              </div>
+
+              {/* Experience 3 */}
+              <div className="flex gap-4 group">
+                <div className="w-12 h-12 flex-shrink-0 border border-[var(--titanium-300)] rounded bg-[var(--titanium-100)] p-1 overflow-hidden">
+                  {/* TODO: Upload first.png to public/logos/ */}
+                  <img src="/logos/first.png" alt="FIRST Robotics" className="w-full h-full object-contain grayscale group-hover:grayscale-0 transition-all duration-300" onError={(e) => e.currentTarget.src = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="%23adb5bd"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" /></svg>'} />
+                </div>
+                <div>
+                  <h3 className="font-bold text-[var(--titanium-900)] text-base">FIRST Robotics</h3>
+                  <p className="font-mono text-xs text-[var(--laser-red)] mb-2">Captain & Software/Electrical Lead</p>
+                  <p className="text-sm text-[var(--titanium-700)]">
+                    Led a 10-person Java software team on vision localization and path planning. Drove team to World Championships and managed a $57,500 budget.
+                  </p>
+                </div>
+              </div>
+
+            </div>
           </section>
 
+          {/* Auxiliary Parameters (Kept short) */}
           <section className="bg-white border border-[var(--titanium-300)] p-6 shadow-sm relative overflow-hidden">
             <div className="absolute top-0 left-0 w-1 h-full bg-[var(--titanium-400)]" />
             <h2 className="text-lg font-bold text-[var(--titanium-900)] mb-4 uppercase tracking-tight">
               Auxiliary Parameters
             </h2>
-            <ul className="space-y-4 text-[var(--titanium-700)]">
+            <ul className="space-y-3 text-sm text-[var(--titanium-700)]">
               <li className="flex gap-3">
                 <span className="text-[var(--titanium-500)] font-bold">›</span>
-                <span>Duke SWE, Duke Club Basketball, and collaborative engineering communities.</span>
+                <span>President of Bake-A-Wish Cakes Miami (served 625+ children annually).</span>
               </li>
               <li className="flex gap-3">
                 <span className="text-[var(--titanium-500)] font-bold">›</span>
-                <span>Soprano soloist at Temple Beth Am Choir.</span>
-              </li>
-              <li className="flex gap-3">
-                <span className="text-[var(--titanium-500)] font-bold">›</span>
-                <span>Learning-focused interests: ML, trading, health, robotics, and backpacking.</span>
+                <span>Duke SWE, Duke Club Basketball, Soprano soloist.</span>
               </li>
             </ul>
           </section>

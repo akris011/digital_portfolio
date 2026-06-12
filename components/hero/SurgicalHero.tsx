@@ -232,7 +232,7 @@ export function SurgicalHero() {
                   transition={{ duration: 0.8, delay: 0.3 }}
                   className="mt-6 text-lg md:text-xl text-[var(--titanium-700)] max-w-lg font-medium leading-relaxed"
                 >
-                  Electrical & Computer Engineer. Building high-precision, fault-tolerant systems where hardware meets intelligent software.
+                  Electrical & Computer Engineer. Translating ambiguity into fault-tolerant hardware and software systems.
                 </motion.p>
               </div>
 
