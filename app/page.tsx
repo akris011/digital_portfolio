@@ -21,7 +21,7 @@ export default function HomePage() {
           <p className="font-mono text-[10px] font-bold uppercase tracking-widest text-[var(--titanium-500)] mb-4 text-center">
             Operational Deployments & Affiliations
           </p>
-          <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-60 grayscale">
+          <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16 transition-all duration-500">
             {/* Jane Street */}
             <div className="h-8 md:h-10 relative flex items-center justify-center">
               <img src="/logos/jane-street.png" alt="Jane Street" className="max-h-full object-contain" onError={(e) => { e.currentTarget.style.display = 'none'; e.currentTarget.nextElementSibling?.classList.remove('hidden'); }} />
@@ -42,42 +42,13 @@ export default function HomePage() {
               <img src="/logos/forensis.png" alt="ForensiS" className="max-h-full object-contain" onError={(e) => { e.currentTarget.style.display = 'none'; e.currentTarget.nextElementSibling?.classList.remove('hidden'); }} />
               <span className="hidden font-bold text-[var(--titanium-800)] uppercase tracking-widest">ForensiS</span>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Featured Work Section */}
-      <section className="mx-auto w-full max-w-5xl px-6 py-24 relative z-10">
-        
-        {/* Section Header */}
-        <div className="flex flex-col md:flex-row items-start md:items-end justify-between gap-6 border-b border-[var(--titanium-400)] pb-6 mb-12">
-          <div>
-            <div className="flex items-center gap-2 mb-2">
-              <div className="w-1.5 h-1.5 bg-[var(--titanium-600)]" />
-              <p className="font-mono text-[10px] font-bold uppercase tracking-widest text-[var(--titanium-600)]">
-                Directory // Featured Work
-              </p>
+            {/* Bake-A-Wish */}
+            <div className="h-8 md:h-10 relative flex items-center justify-center">
+              <img src="/logos/baw.png" alt="Bake-A-Wish" className="max-h-full object-contain" onError={(e) => { e.currentTarget.style.display = 'none'; e.currentTarget.nextElementSibling?.classList.remove('hidden'); }} />
+              <span className="hidden font-bold text-[var(--titanium-800)] uppercase tracking-widest">Bake-A-Wish</span>
             </div>
-            <h2 className="text-3xl md:text-4xl font-bold text-[var(--titanium-900)] tracking-tight">
-              Clinical & Embedded Systems
-            </h2>
           </div>
-          <Link 
-            className="font-mono text-[10px] font-bold uppercase tracking-widest text-white bg-[var(--titanium-800)] px-6 py-3 hover:bg-[var(--laser-red)] transition-colors shadow-[0_4px_10px_rgba(0,0,0,0.1)] flex items-center gap-2" 
-            href="/projects"
-          >
-            Access Full Archive
-            <span className="text-[var(--titanium-400)]">→</span>
-          </Link>
         </div>
-        
-        {/* Project Grid */}
-        <div className="grid gap-8 lg:grid-cols-2">
-          {featured.map((project) => (
-            <SurgicalProjectCard key={project.slug} project={project} />
-          ))}
-        </div>
-
       </section>
     </div>
   );

@@ -107,7 +107,7 @@ export function ExperienceStrip() {
               <img 
                 src={`/logos/${exp.id}.png`} 
                 alt={exp.org} 
-                className="w-full h-full object-contain p-1 grayscale group-hover:grayscale-0 transition-all duration-300" 
+                className="w-full h-full object-contain p-1 transition-all duration-300" 
                 onError={(e) => {
                   e.currentTarget.style.display = 'none';
                   e.currentTarget.nextElementSibling?.classList.remove('hidden');

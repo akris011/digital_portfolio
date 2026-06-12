@@ -2,7 +2,7 @@
 
 export default function AboutPage() {
   return (
-    <div className="mx-auto w-full max-w-5xl px-6 py-24 min-h-screen">
+    <div className="mx-auto w-full max-w-7xl px-6 py-24 min-h-screen">
       
       {/* Header Block */}
       <div className="border-b-2 border-[var(--titanium-400)] pb-6 mb-12 flex justify-between items-end">
@@ -21,7 +21,7 @@ export default function AboutPage() {
         </div>
       </div>
 
-      <div className="grid gap-12 md:grid-cols-[1fr_2fr]">
+      <div className="grid gap-12 lg:grid-cols-[1fr_3fr]">
         
         {/* Left Column: Biometrics / Specs */}
         <aside className="space-y-8">
@@ -100,7 +100,7 @@ export default function AboutPage() {
               <div className="flex gap-4 group">
                 <div className="w-12 h-12 flex-shrink-0 border border-[var(--titanium-300)] rounded bg-[var(--titanium-100)] p-1 overflow-hidden">
                   {/* TODO: Upload jane-street.png to public/logos/ */}
-                  <img src="/logos/jane-street.png" alt="Jane Street" className="w-full h-full object-contain grayscale group-hover:grayscale-0 transition-all duration-300" onError={(e) => e.currentTarget.src = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="%23adb5bd"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" /></svg>'} />
+                  <img src="/logos/jane-street.png" alt="Jane Street" className="w-full h-full object-contain transition-all duration-300" onError={(e) => e.currentTarget.src = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="%23adb5bd"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" /></svg>'} />
                 </div>
                 <div>
                   <h3 className="font-bold text-[var(--titanium-900)] text-base">Jane Street</h3>
@@ -115,7 +115,7 @@ export default function AboutPage() {
               <div className="flex gap-4 group">
                 <div className="w-12 h-12 flex-shrink-0 border border-[var(--titanium-300)] rounded bg-[var(--titanium-100)] p-1 overflow-hidden">
                   {/* TODO: Upload forensis.png to public/logos/ */}
-                  <img src="/logos/forensis.png" alt="ForensiS" className="w-full h-full object-contain grayscale group-hover:grayscale-0 transition-all duration-300" onError={(e) => e.currentTarget.src = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="%23adb5bd"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" /></svg>'} />
+                  <img src="/logos/forensis.png" alt="ForensiS" className="w-full h-full object-contain transition-all duration-300" onError={(e) => e.currentTarget.src = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="%23adb5bd"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" /></svg>'} />
                 </div>
                 <div>
                   <h3 className="font-bold text-[var(--titanium-900)] text-base">ForensiS</h3>
@@ -130,7 +130,7 @@ export default function AboutPage() {
               <div className="flex gap-4 group">
                 <div className="w-12 h-12 flex-shrink-0 border border-[var(--titanium-300)] rounded bg-[var(--titanium-100)] p-1 overflow-hidden">
                   {/* TODO: Upload first.png to public/logos/ */}
-                  <img src="/logos/first.png" alt="FIRST Robotics" className="w-full h-full object-contain grayscale group-hover:grayscale-0 transition-all duration-300" onError={(e) => e.currentTarget.src = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="%23adb5bd"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" /></svg>'} />
+                  <img src="/logos/first.png" alt="FIRST Robotics" className="w-full h-full object-contain transition-all duration-300" onError={(e) => e.currentTarget.src = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="%23adb5bd"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" /></svg>'} />
                 </div>
                 <div>
                   <h3 className="font-bold text-[var(--titanium-900)] text-base">FIRST Robotics</h3>
