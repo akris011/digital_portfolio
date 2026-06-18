@@ -16,13 +16,13 @@ export function Navbar() {
   return (
     <header className="sticky top-0 z-50 bezel-titanium border-b-0 rounded-none">
       <div className="absolute inset-0 bg-white/40 backdrop-blur-md pointer-events-none" />
-      <nav className="relative z-10 mx-auto flex w-full max-w-6xl items-center justify-between px-6 py-1.5">
+      <nav className="relative z-10 mx-auto flex w-full max-w-6xl items-center justify-between px-6 py-5">
         
         {/* Brand / System Status */}
         <Link href="/" className="flex items-center gap-3">
           <div className="w-2 h-2 rounded-full bg-[var(--laser-red)] shadow-[0_0_8px_rgba(255,42,42,0.8)] animate-pulse" />
           <span className="text-xs font-bold tracking-[0.2em] text-[var(--titanium-800)] uppercase">
-            A.Krislav // Sys.Online
+            A.Krislav
           </span>
         </Link>
 

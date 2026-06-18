@@ -46,7 +46,7 @@ export function SurgicalHero() {
   }, []);
 
   return (
-    <section className="relative min-h-[70vh] w-full flex items-center justify-center overflow-hidden font-sans pt-8 pb-12">
+    <section className="relative min-h-[70vh] w-full flex items-center justify-center overflow-hidden font-sans pt-10 pb-12">
       {/* Sterile Environment Background */}
       <div className="absolute inset-0 pointer-events-none z-0">
         {/* Clinical overhead lighting effect */}
