@@ -16,7 +16,7 @@ export function Navbar() {
   return (
     <header className="sticky top-0 z-50 bezel-titanium border-b-0 rounded-none">
       <div className="absolute inset-0 bg-white/40 backdrop-blur-md pointer-events-none" />
-      <nav className="relative z-10 mx-auto flex w-full max-w-6xl items-center justify-between px-6 py-3">
+      <nav className="relative z-10 mx-auto flex w-full max-w-6xl items-center justify-between px-6 py-1.5">
         
         {/* Brand / System Status */}
         <Link href="/" className="flex items-center gap-3">
@@ -27,14 +27,14 @@ export function Navbar() {
         </Link>
 
         {/* Navigation Links */}
-        <div className="flex gap-4">
+        <div className="flex gap-2">
           {navItems.map((item) => {
             const active = pathname === item.href || (item.href !== "/" && pathname.startsWith(item.href));
             return (
               <Link
                 key={item.href}
                 href={item.href}
-                className={`font-mono text-[10px] uppercase font-bold tracking-widest px-3 py-1.5 transition-all ${
+                className={`font-mono text-[11px] uppercase font-bold tracking-widest px-5 py-2.5 transition-all ${
                   active
                     ? "text-[var(--laser-red)] border-b-2 border-[var(--laser-red)]"
                     : "text-[var(--titanium-600)] hover:text-[var(--titanium-900)] border-b-2 border-transparent"
