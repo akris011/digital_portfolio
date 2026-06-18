@@ -20,12 +20,12 @@ export function InteractiveSchematic({ projects }: InteractiveSchematicProps) {
         {/* Central Bus Line */}
         <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-1 bg-[#333] md:-translate-x-1/2" />
         
-        <div className="flex flex-col gap-16 md:gap-24">
+        <div className="flex flex-col gap-12 md:gap-0 md:-space-y-48">
           {projects.map((project, index) => {
             const isLeft = index % 2 === 0;
             
             return (
-              <div key={project.slug} className="relative flex flex-col md:flex-row w-full items-center group">
+              <div key={project.slug} className="relative flex flex-col md:flex-row w-full items-center group z-10 hover:z-50 transition-all duration-300">
                 
                 {/* Node Dot on the Bus */}
                 <div className="absolute left-4 md:left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-5 h-5 rounded-full bg-[#111] border-2 border-[#555] z-20 group-hover:border-[var(--laser-red)] group-hover:bg-[var(--laser-red)] transition-colors duration-500 shadow-[0_0_0_#aa0000] group-hover:shadow-[0_0_15px_#aa0000]" />
@@ -50,7 +50,7 @@ export function InteractiveSchematic({ projects }: InteractiveSchematicProps) {
                 </div>
 
                 {/* Node Label */}
-                <div className={`absolute top-1/2 -translate-y-1/2 font-mono text-[10px] font-bold tracking-widest text-[#555] group-hover:text-[var(--laser-red)] transition-colors duration-500 hidden md:block ${isLeft ? 'left-[calc(50%+2rem)]' : 'right-[calc(50%+2rem)]'}`}>
+                <div className={`absolute top-[calc(50%-1.5rem)] font-mono text-[10px] font-bold tracking-widest text-[#555] group-hover:text-[var(--laser-red)] transition-colors duration-500 hidden md:block ${isLeft ? 'right-[calc(50%+1rem)] text-right' : 'left-[calc(50%+1rem)] text-left'}`}>
                   U{index + 1}: {project.slug.split('-')[0].toUpperCase()}_SYS
                 </div>
 
