@@ -16,7 +16,7 @@ export function Navbar() {
   return (
     <header className="sticky top-0 z-50 bezel-titanium border-b-0 rounded-none">
       <div className="absolute inset-0 bg-white/40 backdrop-blur-md pointer-events-none" />
-      <nav className="relative z-10 mx-auto flex w-full max-w-6xl items-center justify-between px-6 py-3">
+      <nav className="relative z-10 mx-auto flex w-full max-w-6xl items-center justify-between px-6 py-1.5">
         
         {/* Brand / System Status */}
         <Link href="/" className="flex items-center gap-3">
