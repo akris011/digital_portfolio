@@ -8,7 +8,7 @@ type Props = {
 
 export function SurgicalProjectCard({ project }: Props) {
   return (
-    <article className="group bezel-titanium rounded-xl p-2 transition-transform hover:-translate-y-1 duration-300 relative overflow-hidden">
+    <article className="group bezel-titanium rounded-xl p-2 transition-transform hover:-translate-y-1 duration-300 relative overflow-hidden shadow-lg">
       
       {/* Inner Monitor Screen */}
       <div className="screen-monitor rounded-lg p-6 relative overflow-hidden h-full flex flex-col transition-colors duration-300 group-hover:bg-[#001122]">
